@@ -8,7 +8,7 @@ import { AppRoute } from '../const';
 const Footer = () => {
     return (
         <Layout>
-            <div className="navigation">
+            <div>
                 <NavLink to={AppRoute.main} style={getStyleForNavLink}>
                     <Button label="Главная страница" />
                 </NavLink>
@@ -16,7 +16,9 @@ const Footer = () => {
                     <Button label="Услуги" />
                 </NavLink>
             </div>
-            <p>© 2024 Моя компания</p>
+            <div style={{ marginLeft: "auto", marginRight: "1rem"}}>
+                <p>© 2024 Моя компания</p>
+            </div>
         </Layout>
     );
 }

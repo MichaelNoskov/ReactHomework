@@ -16,6 +16,10 @@ const ServiceDetailPage = function(){
 
     return (
         <>
+        <div style={{
+                maxWidth: "60rem",
+                margin: "0 auto",
+            }}>
             {services ? (
                 <ServicesList
                 key={services.name}
@@ -26,6 +30,7 @@ const ServiceDetailPage = function(){
             ) : (
                 <Loader/>
             )}
+        </div>
         </>
     )
 }

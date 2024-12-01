@@ -14,9 +14,11 @@ const Header = () => {
             <NavLink to={AppRoute.service} style={getStyleForNavLink}>
                 <Button label="Услуги" />
             </NavLink>
-            <NavLink to={AppRoute.login} style={getStyleForNavLink}>
-                <Button label="Вход" />
-            </NavLink>
+            <div style={{ marginLeft: "auto", marginRight: "1rem"}}>
+                <NavLink to={AppRoute.login} style={getStyleForNavLink}>
+                    <Button label="Вход" />
+                </NavLink>
+            </div>
         </Layout>
     );
 }

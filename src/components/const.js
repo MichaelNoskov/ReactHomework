@@ -10,12 +10,21 @@ export const URLs = {
     news: 'https://673423afa042ab85d1190055.mockapi.io/api/v1/main'
 }
 
-export const getStyleForNavLink = ({isActive}) =>
-    isActive
-        ? {
-            cursor: 'default',
-            color: 'black',
-            textDecoration: 'none',
-            padding: 5
-          }
-        : {padding: 5}
+export const API_PATH = "https://673423afa042ab85d1190055.mockapi.io/api/v1"
+export const API_AUTH_PATH = "https://dummyjson.com/auth"
+
+export const getStyleForNavLink = ({ isActive }) => ({
+    cursor: 'pointer',
+    color: isActive ? '#000000' : '#007bff',
+    backgroundColor: isActive ? '#e7f3ff' : 'transparent',
+    textDecoration: 'none',
+    padding: '10px 15px',
+    borderRadius: '5px',
+    opacity: isActive ? 1 : 0.8,
+    transition: 'background-color 0.3s, color 0.3s, opacity 0.3s',
+    '&:hover': {
+        backgroundColor: isActive ? '#d9edf7' : '#f8f9fa',
+        color: isActive ? '#000000' : '#0056b3',
+        opacity: 1,
+    }
+});
