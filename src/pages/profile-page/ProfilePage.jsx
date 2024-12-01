@@ -7,8 +7,6 @@ const ProfilePage = function(){
     const navigate = useNavigate()
     const user = useSelector(state => state.user.user)
 
-    console.log(user)
-
     if (user === null)
         return navigate(AppRoute.login)
     return(

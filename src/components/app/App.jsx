@@ -9,6 +9,7 @@ import ServicePage from '../../pages/service-page/ServicePage';
 import ServiceDetailPage from '../../pages/service-detail-page/ServiceDetailPage';
 import LoginPage from '../../pages/login-page/LoginPage';
 import ProfilePage from '../../pages/profile-page/ProfilePage';
+import CheckAuth from "../check-auth/CheckAuth";
 
 const App = function() {
   return (
@@ -17,9 +18,9 @@ const App = function() {
         <Routes>
           <Route path={AppRoute.main} element={<MainLayout />}>
             <Route index element={<MainPage />}/>
-            <Route path={AppRoute.service} element={<ServicePage />} />
-            <Route path={AppRoute.service+":id"} element={<ServiceDetailPage />} />
-            <Route path={AppRoute.profile} element={<ProfilePage />} />
+            <Route path={AppRoute.service} element={<CheckAuth><ServicePage/></CheckAuth>} />
+            <Route path={AppRoute.service+":id"} element={<CheckAuth><ServiceDetailPage/></CheckAuth>}/>
+            <Route path={AppRoute.profile} element={<CheckAuth><ProfilePage/></CheckAuth>} />
             <Route path={AppRoute.login} element={<LoginPage />} />
           </Route>
           <Route path="*" element={<Responses404 />}/>
