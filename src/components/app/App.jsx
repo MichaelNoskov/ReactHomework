@@ -18,6 +18,7 @@ const App = function() {
             <Route index element={<MainPage />}/>
             {/* <Route path={AppRoute.service} element={<ServicePage />} />
             <Route path={AppRoute.service+":id"} element={<ServiceDetailPage />} />
+            <Route path={AppRoute.profile+":id"} element={<ServiceDetailPage />} />
             <Route path={AppRoute.login} element={<LoginPage />} /> */}
           </Route>
           <Route path="*" element={<Responses404 />}/>
