@@ -3,20 +3,18 @@ import { NavLink } from 'react-router-dom';
 import { Button } from '@consta/uikit/Button';
 import { Layout } from '@consta/uikit/Layout';
 import { getStyleForNavLink } from '../const';
+import { AppRoute } from '../const';
 
 const Header = () => {
     return (
         <Layout>
-            <NavLink to="/" style={getStyleForNavLink}>
+            <NavLink to={AppRoute.main} style={getStyleForNavLink}>
                 <Button label="Главная страница" />
             </NavLink>
-            <NavLink to="/services/" style={getStyleForNavLink}>
+            <NavLink to={AppRoute.service} style={getStyleForNavLink}>
                 <Button label="Услуги" />
             </NavLink>
-            <NavLink to="/profile/" style={getStyleForNavLink}>
-                <Button label="ФИО" />
-            </NavLink>
-            <NavLink to="/login/" style={getStyleForNavLink}>
+            <NavLink to={AppRoute.login} style={getStyleForNavLink}>
                 <Button label="Вход" />
             </NavLink>
         </Layout>

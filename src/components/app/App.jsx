@@ -16,10 +16,10 @@ const App = function() {
         <Routes>
           <Route path={AppRoute.main} element={<MainLayout />}>
             <Route index element={<MainPage />}/>
-            {/* <Route path={AppRoute.service} element={<ServicePage />} />
+            <Route path={AppRoute.service} element={<ServicePage />} />
             <Route path={AppRoute.service+":id"} element={<ServiceDetailPage />} />
             <Route path={AppRoute.profile+":id"} element={<ServiceDetailPage />} />
-            <Route path={AppRoute.login} element={<LoginPage />} /> */}
+            <Route path={AppRoute.login} element={<LoginPage />} />
           </Route>
           <Route path="*" element={<Responses404 />}/>
         </Routes>
