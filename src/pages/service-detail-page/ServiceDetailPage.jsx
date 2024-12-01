@@ -3,8 +3,13 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getServicesListAction } from "../../store/api-actions";
 import { Loader } from '@consta/uikit/Loader';
+import { useSelector } from "react-redux";
 
 const ServiceDetailPage = function(){
+
+    const user = useSelector(state => state.user.user)
+
+
     const {id} = useParams();
     const [services, setServices] = useState();
     useEffect(() => {

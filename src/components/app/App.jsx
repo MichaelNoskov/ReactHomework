@@ -8,6 +8,7 @@ import MainPage from '../../pages/main-page/MainPage';
 import ServicePage from '../../pages/service-page/ServicePage';
 import ServiceDetailPage from '../../pages/service-detail-page/ServiceDetailPage';
 import LoginPage from '../../pages/login-page/LoginPage';
+import ProfilePage from '../../pages/profile-page/ProfilePage';
 
 const App = function() {
   return (
@@ -18,7 +19,7 @@ const App = function() {
             <Route index element={<MainPage />}/>
             <Route path={AppRoute.service} element={<ServicePage />} />
             <Route path={AppRoute.service+":id"} element={<ServiceDetailPage />} />
-            <Route path={AppRoute.profile+":id"} element={<ServiceDetailPage />} />
+            <Route path={AppRoute.profile} element={<ProfilePage />} />
             <Route path={AppRoute.login} element={<LoginPage />} />
           </Route>
           <Route path="*" element={<Responses404 />}/>
