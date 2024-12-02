@@ -21,6 +21,7 @@ const LoginPage = ()=>{
     const [passwd, setPasswd] = useState(null);
     const handlePasswdChange = (value) => setPasswd(value);
 
+    const [error, setError] = useState(null);
 
     function handleLogIn(){
 
@@ -30,6 +31,7 @@ const LoginPage = ()=>{
         }).then(resp => {
             if (resp.status = 200){
                 let respData = resp.data
+                console.log(respData.message)
                 setStatus("success")
                 dispatch(
                     setUser(
@@ -41,8 +43,13 @@ const LoginPage = ()=>{
                 )
                 navigate('/');
             }
-        }).catch(_=>{
-            setStatus("alert")
+        }).catch(warning=>{
+            setStatus("alert");
+            setError(JSON.parse(warning.request.response).message)
+            // alert(warning)
+            // let respData = warning.data;
+            // console.log(respData)
+            // setError(respData);
         })
     }
 
@@ -68,7 +75,11 @@ const LoginPage = ()=>{
                 value={passwd}
                 onChange={handlePasswdChange}
             />
-            <Button label="Войти" onClick={handleLogIn} style={{marginTop:"10px"}}/>
+            { (!passwd || !login) ? 
+                <Button label="Войти" disabled={true} onClick={handleLogIn} style={{marginTop:"10px"}}/>
+            : <Button label="Войти" onClick={handleLogIn} style={{marginTop:"10px"}}/>}
+
+            <p align="left" view="alert" style={{color: "red"}}>{error}</p>
         </div>
         </>
     )
