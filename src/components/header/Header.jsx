@@ -13,11 +13,15 @@ const Header = () => {
     const navigate = useNavigate()
 
     var authButton = null
+    var serviceButton = <NavLink to={AppRoute.service} style={getStyleForNavLink}>
+                        <Button label="Услуги" />
+                        </NavLink>
 
     if (user === null){
         authButton = <NavLink to={AppRoute.login} style={getStyleForNavLink}>
                      <Button label="Вход" />
                     </NavLink>
+        serviceButton = null
     } else{
         let exit = ()=>{
             dispatch(clearUser())
@@ -36,9 +40,7 @@ const Header = () => {
             <NavLink to={AppRoute.main} style={getStyleForNavLink}>
                 <Button label="Главная страница" />
             </NavLink>
-            <NavLink to={AppRoute.service} style={getStyleForNavLink}>
-                <Button label="Услуги" />
-            </NavLink>
+            {serviceButton}
             <div style={{ marginLeft: "auto", marginRight: "1rem"}}>
                 {authButton}
             </div>

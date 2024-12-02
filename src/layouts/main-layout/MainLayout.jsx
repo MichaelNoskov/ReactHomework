@@ -5,14 +5,24 @@ import Footer from "../../components/footer/Footer";
 
 const MainLayout = () => {
     return (
-        <div>
-            <Header/>
-            <hr/>
-            <main>
+        <div style={{
+            display: "flex",
+                flexDirection: "column",
+                flexWrap: "nowrap",
+                minHeight: "100vh",
+                maxHeight: "100vh"
+        }}>
+            <div>
+                <Header/>
+                <hr/>
+            </div>
+            <main style={{flexGrow: 1}}>
                 <Outlet/>
             </main>
-            <hr/>
-            <Footer/>
+            <div style={{marginBottom: "1rem"}}>
+                <hr/>
+                <Footer/>
+            </div>
         </div>
     )
 }

@@ -31,7 +31,7 @@ const LoginPage = ()=>{
         }).then(resp => {
             if (resp.status = 200){
                 let respData = resp.data
-                console.log(respData.message)
+                console.log(respData)
                 setStatus("success")
                 dispatch(
                     setUser(
@@ -46,10 +46,6 @@ const LoginPage = ()=>{
         }).catch(warning=>{
             setStatus("alert");
             setError(JSON.parse(warning.request.response).message)
-            // alert(warning)
-            // let respData = warning.data;
-            // console.log(respData)
-            // setError(respData);
         })
     }
 

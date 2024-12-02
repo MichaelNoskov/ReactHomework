@@ -9,7 +9,6 @@ const CheckAuth = function({children}){
 
     useEffect(()=>{
         if(user === null){
-            console.log("not login")
             navigate(AppRoute.login)
         }
     },[])
