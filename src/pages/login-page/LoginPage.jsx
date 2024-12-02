@@ -31,12 +31,11 @@ const LoginPage = ()=>{
         }).then(resp => {
             if (resp.status = 200){
                 let respData = resp.data
-                console.log(respData)
                 setStatus("success")
                 dispatch(
                     setUser(
                         {
-                            user:{username: respData.username, firstName: respData.firstName, lastName: respData.lastName},
+                            user:{username: respData.username, firstName: respData.firstName, lastName: respData.lastName, email: respData.email},
                             token: respData.accessToken
                         }
                     )

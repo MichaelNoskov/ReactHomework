@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getServicesListAction } from "../../store/api-actions";
 import { Loader } from '@consta/uikit/Loader';
+import { useSelector } from "react-redux";
 
 const ServiceDetailPage = function(){
 
     const navigate = useNavigate();
 
     const {id} = useParams();
-    const [services, setServices] = useState();
+    const [service, setService] = useState(useSelector(state => state.services.value).find(s => s.id == id));
 
-    async function fetchServices(){
-        setServices(await getServicesListAction(id));
-    }
-    fetchServices().catch(_=>{navigate("/not-found")})
+    useEffect(() => {
+        if(service)
+            getServicesListAction(id).then(service=>{
+                setService(service)
+            })
+    }, []).catch(_=>{navigate("/not-found")});
 
     return (
         <>
@@ -22,13 +25,13 @@ const ServiceDetailPage = function(){
                 maxWidth: "60rem",
                 margin: "0 auto",
             }}>
-            {services ? (
+            {service ? (
                 <ServicesList
-                key={services.name}
-                name={services.name}
-                description={services.description}
-                image={services.image}
-                createdAt={(new Date(services.createdAt)).toDateString()}/>
+                key={service.name}
+                name={service.name}
+                description={service.description}
+                image={service.image}
+                createdAt={(new Date(service.createdAt)).toDateString()}/>
             ) : (
                 <Loader/>
             )}
