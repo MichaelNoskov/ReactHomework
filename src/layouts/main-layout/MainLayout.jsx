@@ -7,10 +7,10 @@ const MainLayout = () => {
     return (
         <div style={{
             display: "flex",
-                flexDirection: "column",
-                flexWrap: "nowrap",
-                minHeight: "100vh",
-                maxHeight: "100vh"
+            flexDirection: "column",
+            flexWrap: "nowrap",
+            minHeight: "100vh",
+            maxHeight: "100vh"
         }}>
             <div>
                 <Header/>
