@@ -27,7 +27,7 @@ const Footer = () => {
                 {serviceButton}
             </div>
             <div style={{ marginLeft: "auto", marginRight: "1rem"}}>
-                <p>© 2024 Моя компания</p>
+                <p>© {(new Date().getFullYear())} Это Моя компания</p>
             </div>
         </Layout>
     );
