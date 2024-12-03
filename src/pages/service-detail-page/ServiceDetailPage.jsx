@@ -10,14 +10,14 @@ const ServiceDetailPage = function(){
     const navigate = useNavigate();
 
     const {id} = useParams();
-    const [service, setService] = useState(useSelector(state => state.services.value).find(s => s.id == id));
+    const [service, setService] = useState(useSelector(state => state.services.value)?.find(s => s.id == id));
 
     useEffect(() => {
-        if(service)
+        if(service == null)
             getServicesListAction(id).then(service=>{
                 setService(service)
-            })
-    }, []).catch(_=>{navigate("/not-found")});
+            }).catch(_=>{navigate("/not-found")})
+    }, []);
 
     return (
         <>
